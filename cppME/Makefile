@@ -2,22 +2,30 @@
 #
 # Ver 12/6/2014
 
+me_major_num := 1
+me_minor_num := 0
+me_build_num := 0
+
+targets :=
+objects :=
+libraries :=
+output_files := doc/html
+
+
+# this blank default is required
+default:
+
+include cppME/me.mk
+include cppME/libME.mk
+
 .PHONY: all clean distclean
-default: all
-
-include libME.mk
-
-motion_energy.o: include/motion_energy.h include/cuda_version_control.h
-	nvcc -I/usr/local/cuda/samples/common/inc -Iinclude -D__CUDA6__ -arch sm_30 -use_fast_math src/motion_energy.cu -c motion_energy.o
-
-# make all
-all: motion_energy.o
+default: $(targets)
 
 clean:
-	rm -rf motion_energy.o
+	rm -rf $(objects)
 
 distclean:
-	rm -rf motion_energy.o tmp* *.log *.dat *.a results
+	rm -rf $(objects) $(targets) $(libraries) $(output_files)
 
 # Print a help message
 help:
