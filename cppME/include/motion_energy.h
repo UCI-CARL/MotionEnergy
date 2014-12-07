@@ -42,12 +42,6 @@
 #ifndef _MOTION_ENERGY_H_
 #define _MOTION_ENERGY_H_
 
-#if __CUDA3__
-    #include <cutil_inline.h>
-#elif __CUDA5__
- 	#include <cuda.h>
-    #include <helper_cuda.h>
-#endif
 #include <cuda_version_control.h>
 
 #include <vector_types.h>			// dim3

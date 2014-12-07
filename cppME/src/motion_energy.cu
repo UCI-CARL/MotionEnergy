@@ -3,16 +3,10 @@
 #include <stdio.h>	// printf
 #include <cassert> // assert
 
-//#include <cufft.h>	// required?
-#if __CUDA3__
-    #include <cutil_inline.h>
-#elif __CUDA5__
-    #include <helper_cuda.h>
-#endif
 #include <cuda_version_control.h>
 
-#include <sstream>
-#include <user_errors.h>
+//#include <sstream>
+//#include <user_errors.h>
 
 #define IMUL(a, b) __mul24(a, b)
 #define iDivUp(a,b) ((a)+(b)-1)/(b)
@@ -738,10 +732,10 @@ void MotionEnergy::calcV1direction(double speed) {
 /// **************************************************************************************************************** ///
 
 void MotionEnergy::initME() {
-	std::stringstream minVal; minVal << min_nrX_ << " pixels.";
-	UserErrors::assertTrue(nrX_>=min_nrX_, UserErrors::CANNOT_BE_SMALLER, "initME()", "nrX", minVal.str());
-	minVal.str(""); minVal << min_nrY_ << " pixels.";
-	UserErrors::assertTrue(nrY_>=min_nrY_, UserErrors::CANNOT_BE_SMALLER, "initME()", "nrX", minVal.str());
+//	std::stringstream minVal; minVal << min_nrX_ << " pixels.";
+//	UserErrors::assertTrue(nrX_>=min_nrX_, UserErrors::CANNOT_BE_SMALLER, "initME()", "nrX", minVal.str());
+//	minVal.str(""); minVal << min_nrY_ << " pixels.";
+//	UserErrors::assertTrue(nrY_>=min_nrY_, UserErrors::CANNOT_BE_SMALLER, "initME()", "nrX", minVal.str());
 
 	CUDA_CHECK_ERRORS(cudaMalloc((void**)&d_resp_, sizeof(float)*nrX_*nrY_*nrFilters*nrScales_)); // V1 filter responses
 	CUDA_CHECK_ERRORS(cudaMalloc((void**)&d_respV1c, sizeof(float)*nrX_*nrY_*nrDirs)); // V1 complex cell responses
