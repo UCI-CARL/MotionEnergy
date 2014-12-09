@@ -25,6 +25,8 @@
 
     #define CUDA_GET_MAXGFLOP_DEVICE_ID cutGetMaxGflopsDeviceId
 #elif defined(__CUDA5__) || defined(__CUDA6__)
+    #include <cuda.h>
+    #include <cuda_runtime.h>
     #include <helper_cuda.h>
     #define CUDA_CHECK_ERRORS(x) checkCudaErrors(x)
     #define CUDA_CHECK_ERRORS_MACRO(x) checkCudaErrors(x)

@@ -5,7 +5,7 @@
 default: main
 
 main: src/main.cpp
-	nvcc -I/opt/CARL/MotionEnergy/include -L/opt/CARL/MotionEnergy/lib $< -o $@ -lcuda -lcudart -lME
+	nvcc -I/opt/CARL/motion_energy/include -L/opt/CARL/motion_energy/lib $< -o $@ -lcuda -lcudart -lME
 
 clean:
 	rm -rf main

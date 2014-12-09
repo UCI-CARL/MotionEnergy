@@ -13,7 +13,6 @@ objects += $(me_obj_files)
 
 .PHONY: $(me_tgt_file)
 
-
 $(me_tgt_file): $(me_src_files) $(me_inc_files) $(me_obj_files)
 
 $(me_obj_dir)/%_cu.o: $(me_src_dir)/%.cu $(me_inc_dir)/%.h

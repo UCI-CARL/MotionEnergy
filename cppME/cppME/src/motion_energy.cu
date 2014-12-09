@@ -751,6 +751,7 @@ void MotionEnergy::initME() {
 	CUDA_CHECK_ERRORS(cudaMalloc ((void**)&d_diffV1GausBuf, nrX_*nrY_*nrT*sizeof(float)));
 	CUDA_CHECK_ERRORS(cudaMalloc ((void**)&d_pop, nrX_*sizeof(float)*nrY_*nrScales_)); // mean of 28 filter responses for all x,y and spatial scales, at a given step in time
 
+#if __CUDA3__
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&scalingFilt, "d_scalingFilt"));
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&v1Gaus, "d_v1GaussFilt"));
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&complexV1Filt, "d_complexV1Filt"));
@@ -758,6 +759,16 @@ void MotionEnergy::initME() {
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff1filt, "d_diff1filt"));
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff2filt, "d_diff2filt"));
 	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff3filt, "d_diff3filt"));
+#else
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&scalingFilt, d_scalingFilt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&v1Gaus, d_v1GaussFilt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&complexV1Filt, d_complexV1Filt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&normV1filt, d_normV1filt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff1filt, d_diff1filt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff2filt, d_diff2filt));
+	CUDA_CHECK_ERRORS(cudaGetSymbolAddress((void**)&diff3filt, d_diff3filt));
+#endif
+
 }
 
 // init all scaling factors, akin to shPars.m

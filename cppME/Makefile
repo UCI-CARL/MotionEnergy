@@ -12,9 +12,6 @@ libraries :=
 output_files := doc/html
 
 
-# this blank default is required
-default:
-
 include cppME/me.mk
 include cppME/libME.mk
 
