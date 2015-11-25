@@ -720,7 +720,7 @@ void MotionEnergy::calcV1direction(double speed) {
 	// half-wave rectification to avoid "negative firing rates"
 	// 0 Hz spontaneous firing
 	// TODO: justify scaling factors
-	dev_scaleHalfRect<<<iDivUp(nrX_*nrY_*nrDirs,128), 128>>>(d_respV1c, nrX_*nrY_*nrDirs, scaleV1ComplexFiring_, 0.0);
+	dev_scaleHalfRect<<<iDivUp(nrX_*nrY_*nrDirs,128), 128>>>(d_respV1c, nrX_*nrY_*nrDirs, scaleV1ComplexFiring_, 1.0);
 
        // scale to firing rate 
 //       dev_scale<<<iDivUp(nrX_*nrY_*nrDirs,128), 128>>>(d_respV1c, scaleV1ComplexFiring_);

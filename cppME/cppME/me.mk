@@ -1,19 +1,53 @@
-me_inc_dir := cppME/include
-me_src_dir := cppME/src
-me_obj_dir := cppME
+#------------------------------------------------------------------------------
+# MotionEnergy Engine Makefile
+#
+# Note: This file depends on variables set in configure.mk, thus must be run
+# after importing those others.
+#------------------------------------------------------------------------------
 
-me_inc_files := $(addprefix $(me_inc_dir)/,motion_energy.h cuda_version_control.h)
-me_src_files := $(addprefix $(me_src_dir)/,motion_energy.cu)
-me_obj_files := $(addprefix $(me_obj_dir)/,motion_energy_cu.o)
-me_tgt_file  := ME
+#------------------------------------------------------------------------------
+# MotionEnergy Kernel
+#------------------------------------------------------------------------------
 
-targets += $(me_tgt_file)
-objects += $(me_obj_files)
+# core has all source code
+core_dir       := cppME
+core_inc_dir   := $(core_dir)/inc
+core_src_dir   := $(core_dir)/src
+core_obj_dir   := $(core_dir)
+COREINCFLAGS   := $(addprefix -I,$(core_inc_dir))
+
+core_inc_files := $(addprefix $(core_inc_dir)/,cuda_version_control.h motion_energy.h)
+core_src_files := $(addprefix $(core_src_dir)/,motion_energy.cu)
+core_obj_files := $(addprefix $(core_obj_dir)/,motion_energy_cu.o)
+
+core_tgt_file  := motion_energy
 
 
-.PHONY: $(me_tgt_file)
+#------------------------------------------------------------------------------
+# CARLsim Common
+#------------------------------------------------------------------------------
+targets += $(core_tgt_file)
+objects += $(core_obj_files)
 
-$(me_tgt_file): $(me_src_files) $(me_inc_files) $(me_obj_files)
+.PHONY: release debug $(core_tgt_file)
 
-$(me_obj_dir)/%_cu.o: $(me_src_dir)/%.cu $(me_inc_dir)/%.h
-	nvcc -c -I/usr/local/cuda/samples/common/inc -I$(me_inc_dir) -D__CUDA6__ -arch sm_30 -use_fast_math $< -o $@
+# release build
+release: CXXFLAGS += -O3 -ffast-math
+release: NVCCFLAGS += --compiler-options "-O3 -ffast-math"
+release: $(targets)
+
+# debug build
+debug: CXXFLAGS += -g -Wall
+debug: NVCCFLAGS += -g -G
+debug: $(targets)
+
+# ME target
+$(core_tgt_file): $(core_obj_files) $(core_src_files) $(core_inc_files)
+
+# CUDA files
+$(core_obj_dir)/%_cu.o: $(core_src_dir)/%.cu $(core_inc_files)
+	$(NVCC) -c $(NVCCSHRFLAGS) $(NVCCINCFLAGS) $(COREINCFLAGS) $(NVCCFLAGS) $< -o $@
+
+# CPP files
+$(core_obj_dir)/%.o: $(core_src_dir)/%.cpp $(core_inc_files)
+	$(NVCC) -c $(NVCCSHRFLAGS) $(NVCCINCFLAGS) $(COREINCFLAGS) $(NVCCFLAGS) $< -o $@
