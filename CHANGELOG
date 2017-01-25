@@ -1,0 +1,32 @@
+Legend:
+	+ added element
+	- removed element
+	* changed element
+
+===============================================================================
+Release 1.0
+===============================================================================
+
+2014-10-13	Michael Beyeler <mbeyeler@uci.edu>
+	+ Added code base from CARLsim repo.
+
+
+
+===============================================================================
+Release 0.2
+===============================================================================
+
+Publication:
+	M Beyeler, M Richert, ND Dutt, JL Krichmar (2014). "Efficient spiking
+	neural network model of pattern motion selectivity in visual cortex",
+	Neuroinformatics.
+
+
+===============================================================================
+Release 0.1
+===============================================================================
+
+Publication:
+	M Richert, JM Nageswaran, N Dutt, JL Krichmar (2011). "An efficient 
+	simulation environment for modeling large-scale cortical processing", 
+	Frontiers in Neuroinformatics 5(19):1-15.
