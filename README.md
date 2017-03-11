@@ -47,13 +47,13 @@ Or use the following BibTex:
 
      - Linux / Mac OS X:
 
-       -# By default, MotionEnergy gets installed to `/opt/CARL/ME`.
+       1. By default, MotionEnergy gets installed to `/opt/CARL/ME`.
           You can change this by exporting an environment variable called `ME_LIB_DIR`:
           ```
           $ export ME_LIB_DIR=/path/to/your/preferred/dir
           ```
 
-       -# Then compile and install:
+       2. Then compile and install:
           ```
           $ cd cppME
           $ make
