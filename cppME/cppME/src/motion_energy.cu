@@ -5,8 +5,6 @@
 
 #include <cuda_definitions.h>
 
-//#include <sstream>
-//#include <user_errors.h>
 
 #define IMUL(a, b) __mul24(a, b)
 #define iDivUp(a,b) ((a)+(b)-1)/(b)

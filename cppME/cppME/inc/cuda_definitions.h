@@ -1,14 +1,12 @@
 /*
- * cuda_version_control.h
+ * cuda_definitions.h
  *
- *  Created on: Nov 3, 2013
- *  Author: Ting-Shuo Chou <tingshuc@uci.edu>
  */
 
 #ifndef _CUDA_DEFINITIONS_H
 #define _CUDA_DEFINITIONS_H
 
-#if __CUDA3__
+#if defined(__CUDA3__) || defined(__CUDA4__)
     #include <cutil_inline.h>
     #define CUDA_CHECK_ERRORS(x) cutilSafeCall(x)
     #define CUDA_CHECK_ERRORS_MACRO(x) CUDA_SAFE_CALL(x)
@@ -24,7 +22,7 @@
     #define CUDA_GET_TIMER_VALUE(x) cutGetTimerValue(x)
 
     #define CUDA_GET_MAXGFLOP_DEVICE_ID cutGetMaxGflopsDeviceId
-#elif defined(__CUDA5__) || defined(__CUDA6__) || defined(__CUDA7__) || defined(__CUDA8__)
+#else
     #include <cuda.h>
     #include <cuda_runtime.h>
     #include <helper_cuda.h>
