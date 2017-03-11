@@ -12,7 +12,7 @@ The code comes with both a Python interface (in `pyME`) and a C/C++ interface (i
 If you use this code in a scholarly publication, please cite as follows:
 > Beyeler, M., Dutt, N., Krichmar, J.L. (2014).
 > Efficient Spiking Neural Network Model of Pattern Motion Selectivity in Visual Cortex
-> Neuroinformatics 12(3):435-454, [doi:10.1007/s12021-014-9220-y](http://dx.doi.org/10.1007/s12021-014-9220-y)
+> Neuroinformatics 12(3):435-454, [doi:10.1007/s12021-014-9220-y](http://dx.doi.org/10.1007/s12021-014-9220-y).
 
 Or use the following BibTex:
 ```
@@ -42,17 +42,13 @@ Or use the following BibTex:
 
 3. Choose whether you want to use the Python interface or the C/C++ interface.
    - Python: There is no package install yet. See the file `pyME/run_dir_V1.py` for an example script.
-
    - C++: The installation depends on your platform.
-
      - Linux / Mac OS X:
-
        1. By default, MotionEnergy gets installed to `/opt/CARL/ME`.
           You can change this by exporting an environment variable called `ME_LIB_DIR`:
           ```
           $ export ME_LIB_DIR=/path/to/your/preferred/dir
           ```
-
        2. Then compile and install:
           ```
           $ cd cppME
@@ -60,5 +56,4 @@ Or use the following BibTex:
           $ sudo -E make install
           ```
           Note the `-E` flag, which will cause `sudo` to remember the `ME_LIB_DIR`.
-
      - Windows: Simply open the solution file `motion_energy.sln` in Visual Studio.
