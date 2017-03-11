@@ -44,20 +44,20 @@ Or use the following BibTex:
    - Python: There is no package install yet. See the file `pyME/run_dir_V1.py` for an example script.
    - C++: The installation depends on your platform.
      - Linux / Mac OS X:
-       1. By default, MotionEnergy gets installed to `/opt/CARL/ME`.
-          You can change this by exporting an environment variable called `ME_LIB_DIR`:
+       By default, MotionEnergy gets installed to `/opt/CARL/ME`.
+       You can change this by exporting an environment variable called `ME_LIB_DIR`:
 
-          ```
-          $ export ME_LIB_DIR=/path/to/your/preferred/dir
-          ```
+       ```
+       $ export ME_LIB_DIR=/path/to/your/preferred/dir
+       ```
 
-       2. Then compile and install:
+       Then compile and install:
 
-          ```
-          $ cd cppME
-          $ make
-          $ sudo -E make install
-          ```
+       ```
+       $ cd cppME
+       $ make
+       $ sudo -E make install
+       ```
 
-          Note the `-E` flag, which will cause `sudo` to remember the `ME_LIB_DIR`.
+       Note the `-E` flag, which will cause `sudo` to remember the `ME_LIB_DIR`.
      - Windows: Simply open the solution file `motion_energy.sln` in Visual Studio.
