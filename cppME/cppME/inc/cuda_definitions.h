@@ -5,8 +5,8 @@
  *  Author: Ting-Shuo Chou <tingshuc@uci.edu>
  */
 
-#ifndef _CUDA_VERSION_CONTROL_H_
-#define _CUDA_VERSION_CONTROL_H_
+#ifndef _CUDA_DEFINITIONS_H
+#define _CUDA_DEFINITIONS_H
 
 #if __CUDA3__
     #include <cutil_inline.h>
@@ -24,7 +24,7 @@
     #define CUDA_GET_TIMER_VALUE(x) cutGetTimerValue(x)
 
     #define CUDA_GET_MAXGFLOP_DEVICE_ID cutGetMaxGflopsDeviceId
-#elif defined(__CUDA5__) || defined(__CUDA6__)
+#elif defined(__CUDA5__) || defined(__CUDA6__) || defined(__CUDA7__) || defined(__CUDA8__)
     #include <cuda.h>
     #include <cuda_runtime.h>
     #include <helper_cuda.h>
@@ -45,4 +45,4 @@
 #endif
 
 
-#endif /* _CUDA_VERSION_CONTROL_H_ */
+#endif /* _CUDA_DEFINITIONS_H */

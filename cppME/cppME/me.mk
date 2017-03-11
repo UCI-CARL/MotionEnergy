@@ -16,7 +16,7 @@ core_src_dir   := $(core_dir)/src
 core_obj_dir   := $(core_dir)
 COREINCFLAGS   := $(addprefix -I,$(core_inc_dir))
 
-core_inc_files := $(addprefix $(core_inc_dir)/,cuda_version_control.h motion_energy.h)
+core_inc_files := $(addprefix $(core_inc_dir)/,cuda_definitions.h motion_energy.h)
 core_src_files := $(addprefix $(core_src_dir)/,motion_energy.cu)
 core_obj_files := $(addprefix $(core_obj_dir)/,motion_energy_cu.o)
 

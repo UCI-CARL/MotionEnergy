@@ -3,7 +3,7 @@
 #include <stdio.h>	// printf
 #include <cassert> // assert
 
-#include <cuda_version_control.h>
+#include <cuda_definitions.h>
 
 //#include <sstream>
 //#include <user_errors.h>

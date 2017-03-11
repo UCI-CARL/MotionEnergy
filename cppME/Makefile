@@ -23,9 +23,9 @@ output_files := doc/html
 .PHONY: default clean distclean release debug
 default: release
 
-include configure.mk     # import configuration settings
-include cppME/me.mk      # import ME-related variables and rules
-include cppME/libME.mk   # import libME-related variables and rules
+include cppME/configure.mk   # import configuration settings
+include cppME/me.mk          # import ME-related variables and rules
+include cppME/libME.mk       # import libME-related variables and rules
 
 # clean all objects
 clean:

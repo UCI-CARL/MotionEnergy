@@ -42,8 +42,6 @@
 #ifndef _MOTION_ENERGY_H_
 #define _MOTION_ENERGY_H_
 
-#include <cuda_version_control.h>
-
 #include <vector_types.h>			// dim3
 
 class MotionEnergy {
