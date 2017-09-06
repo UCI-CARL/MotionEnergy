@@ -5,8 +5,8 @@
 # must be run after importing those others.
 #------------------------------------------------------------------------------
 
-ME_MAJOR_NUM := 1
-ME_MINOR_NUM := 0
+ME_MAJOR_NUM := 0
+ME_MINOR_NUM := 3
 ME_BUILD_NUM := 0
 
 lib_ver := $(ME_MAJOR_NUM).$(ME_MINOR_NUM).$(ME_BUILD_NUM)
