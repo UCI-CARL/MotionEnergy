@@ -1,8 +1,9 @@
 #include <motion_energy.h>
 
-#include <stdio.h>		// printf
+#include <stdio.h>	// printf
 #include <stdlib.h>     // srand, rand
 #include <time.h>       // time
+#include <cstring>	// memset
 
 int main() {
 	printf("main()\n");
