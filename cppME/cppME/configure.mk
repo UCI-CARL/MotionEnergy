@@ -107,6 +107,7 @@ NVCCFLAGS          += -D__CUDA$(NVCC_MAJOR_NUM)__
 GENCODE_SM20       := -gencode arch=compute_20,code=sm_20
 GENCODE_SM30       := -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=\"sm_35,compute_35\"
 NVCCFLAGS          += $(GENCODE_SM20) $(GENCODE_SM30)
+NVCCFLAGS          += -Wno-deprecated-gpu-targets
 
 # OS-specific build flags
 ifneq ($(DARWIN),) 
